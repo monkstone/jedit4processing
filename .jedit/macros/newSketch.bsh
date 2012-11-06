@@ -1,0 +1,8 @@
+// This macro creates a new 3d processing file uses abbreviations
+
+Buffer newBuffer = jEdit.newFile(view);
+view.goToBuffer(newBuffer);
+newBuffer.setMode("processing");
+textArea.setSelectedText("setup3d");
+Abbrevs.expandAbbrev(view,true);
+buffer.saveAs(view,true);

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE COMMANDO SYSTEM "commando.dtd"><!-- processing commando -->
+<!-- Monkstone, 2012-Oct-25 -->
+<COMMANDO>
+    <UI>
+        <CAPTION LABEL="Run Processing">
+            <FILE_ENTRY LABEL="pde file" VARNAME="pde" EVAL="MiscUtilities.getParentOfPath(buffer.getPath())"/>
+        </CAPTION>
+
+        <CAPTION LABEL="Path to processing-java">
+            <ENTRY LABEL="(no spaces)" VARNAME="processing"/>
+        </CAPTION>
+        <CAPTION LABEL="Output folder">
+            <ENTRY LABEL="(no spaces)" VARNAME="output"/>
+            <TOGGLE LABEL="Overwrite" VARNAME="force" />
+        </CAPTION>
+        <CHOICE LABEL="Command" VARNAME="cmd" DEFAULT=" --run">
+            <OPTION LABEL="Run" VALUE=" --run"/>
+            <OPTION LABEL="Present" VALUE=" --present"/>
+            <OPTION LABEL="Compile" VALUE=" --build"/>
+           <OPTION LABEL="Export" VALUE=" --export"/> 
+        </CHOICE>
+        <CAPTION LABEL="Export Options">
+            <CHOICE LABEL="Platform" VARNAME="platform" DEFAULT="windows">
+                <OPTION LABEL="Windows" VALUE="windows"/>
+                <OPTION LABEL="MacOSX" VALUE="macosx"/>
+                <OPTION LABEL="linux" VALUE="linux"/>
+            </CHOICE>
+            <TOGGLE LABEL="64 bit" VARNAME="bit" />
+        </CAPTION>  
+    </UI>
+    <COMMANDS>
+        <COMMAND SHELL="System" CONFIRM="FALSE">
+        buf = new StringBuilder(100);	
+        buf.append(processing);
+	    buf.append(cmd);
+
+	    buf.append(" --sketch=").append(pde.replace(" ", "\\ "));
+	    <!-- Be careful specifying your output/tmp folder with force option -->
+	    if(force){
+	    buf.append(" --force --output=").append(output);	
+	    }
+	    else{
+	    buf.append(" --output=").append(output);
+	    }
+	    <!-- begin export -->
+        if (cmd.equals(" --export")){
+	    buf.append(" --platform=").append(platform);
+	    if (bit){
+	    buf.append(" --bits=64");
+	    }
+	    else{
+	    buf.append(" --bits=32");
+	    }	    
+	    }
+	    <!-- end export -->
+	    buf.toString();
+        </COMMAND>
+    </COMMANDS>
+</COMMANDO>
