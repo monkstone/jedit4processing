@@ -3,7 +3,7 @@ Since processing version 2.0b6, there is the possiblity of running processing sc
 ##jedit##
 Get jEdit [here]("http://www.jedit.org"), you can download some of jEdit tools at the jEdit community website, but it is  bit unreliable so I'm including the scripts in a download here.
 ##processing##
-Get processing here
+Get processing [here](http://processing.org/)
 ##alternative language support##
-I've also produced tools for wrking with processing.py and ruby-processing
+I've also produced tools for working with [processing.py](https://github.com/monkstone/processing.py-examples) and [ruby-processing](https://github.com/jashkenas/ruby-processing/wiki/Other-Resources)
 
