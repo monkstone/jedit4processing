@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE MODE SYSTEM "xmode.dtd"><!-- JEdit edit mode/syntax colouring definition for Processing-0192 source files
+<!DOCTYPE MODE SYSTEM "xmode.dtd"><!-- JEdit edit mode/syntax colouring definition for Processing 2.0 source files
 for jEdit version >= 4.3
 original author: info at toxi . co . uk (based on default Java edit mode)
 updated by: monkstone
 
-last modified: 2011-02-17
+last modified: 2012-Oct-22
 
 installation:
 =============
@@ -51,7 +51,7 @@ syntax colouring for PDE files should now be ready.
       <BEGIN>/*</BEGIN>
       <END>*/</END>
     </SPAN>
-
+		
     <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE">
       <BEGIN>"</BEGIN>
       <END>"</END>
@@ -60,9 +60,9 @@ syntax colouring for PDE files should now be ready.
       <BEGIN>'</BEGIN>
       <END>'</END>
     </SPAN>
-
+		
     <EOL_SPAN TYPE="COMMENT2">//</EOL_SPAN>
-
+		
     <SEQ TYPE="OPERATOR">=</SEQ>
     <SEQ TYPE="OPERATOR">!</SEQ>
     <SEQ TYPE="OPERATOR">&gt;=</SEQ>
@@ -74,7 +74,7 @@ syntax colouring for PDE files should now be ready.
 <!-- workaround to stop "*" from being colorized
 in import statements. -->
     <SEQ TYPE="NULL">.*</SEQ>
-
+		
     <SEQ TYPE="OPERATOR">*</SEQ>
     <SEQ TYPE="OPERATOR">&gt;</SEQ>
     <SEQ TYPE="OPERATOR">&lt;</SEQ>
@@ -86,7 +86,7 @@ in import statements. -->
     <SEQ TYPE="OPERATOR">}</SEQ>
     <SEQ TYPE="OPERATOR">{</SEQ>
 
-
+		
     <MARK_PREVIOUS TYPE="LABEL" MATCH_TYPE="OPERATOR" AT_WHITESPACE_END="TRUE">:</MARK_PREVIOUS>
 
 <!-- Function calls -->
@@ -98,9 +98,8 @@ in import statements. -->
 <!-- Annotation types -->
     <MARK_FOLLOWING TYPE="KEYWORD4">@</MARK_FOLLOWING>
 
-
-    <KEYWORDS>
 <!-- LITERAL2 specifies constants -->
+    <KEYWORDS>
       <LITERAL2>ADD</LITERAL2>
       <LITERAL2>ALIGN_CENTER</LITERAL2>
       <LITERAL2>ALIGN_LEFT</LITERAL2>
@@ -150,11 +149,8 @@ in import statements. -->
       <LITERAL2>DIRECTIONAL</LITERAL2>
       <LITERAL2>DISABLE_ACCURATE_TEXTURES</LITERAL2>
       <LITERAL2>DISABLE_DEPTH_SORT</LITERAL2>
-      <LITERAL2>DISABLE_DEPTH_TEST</LITERAL2>
       <LITERAL2>DISABLE_NATIVE_FONTS</LITERAL2>
       <LITERAL2>DISABLE_OPENGL_ERROR_REPORT</LITERAL2>
-      <LITERAL2>DISABLE_OPENGL_2X_SMOOTH</LITERAL2>
-      <LITERAL2>DISABLE_OPENGL_4X_SMOOTH</LITERAL2>
       <LITERAL2>DISABLE_TEXT_SMOOTH</LITERAL2>
       <LITERAL2>DISABLED</LITERAL2>
       <LITERAL2>DODGE</LITERAL2>
@@ -162,9 +158,8 @@ in import statements. -->
       <LITERAL2>DXF</LITERAL2>
       <LITERAL2>ENABLE_ACCURATE_TEXTURES</LITERAL2>
       <LITERAL2>ENABLE_DEPTH_SORT</LITERAL2>
-      <LITERAL2>ENABLE_DEPTH_TEST</LITERAL2>
       <LITERAL2>ENABLE_NATIVE_FONTS</LITERAL2>
-      <LITERAL2>ENABLE_OPENGL_2X_SMOOTH</LITERAL2>
+      <LITERAL2>DISABLE_OPENGL_2X_SMOOTH</LITERAL2>
       <LITERAL2>ENABLE_OPENGL_4X_SMOOTH</LITERAL2>
       <LITERAL2>ENABLE_OPENGL_ERROR_REPORT</LITERAL2>
       <LITERAL2>ENTER</LITERAL2>
@@ -255,6 +250,7 @@ in import statements. -->
       <LITERAL2>WAIT</LITERAL2>
       <LITERAL2>WHITESPACE</LITERAL2>
 
+
 <!-- KEYWORD1 specifies datatypes and keywords -->
 
       <KEYWORD1>ArrayList</KEYWORD1>
@@ -330,12 +326,35 @@ in import statements. -->
 
       <KEYWORD2>cache</KEYWORD2>
 
-<!--
-# THE TEXT ABOVE IS HAND-WRITTEN AND FOUND IN THE FILE "keywords_base.txt"
-# THE TEXT BELOW IS AUTO-GENERATED
--->
 
+<!-- THE TEXT ABOVE IS HAND-WRITTEN AND FOUND IN THE FILE "keywords_base.txt"-->
+<!-- THE TEXT BELOW IS AUTO-GENERATED-->
+<!--Begin temporary additions 3 September 2012 as the reference is getting updated-->
 
+<KEYWORD1>PShape</KEYWORD1>
+<KEYWORD2>createShape</KEYWORD2>
+<KEYWORD2>beginContour</KEYWORD2>
+<KEYWORD2>endContour</KEYWORD2>
+<KEYWORD2>end</KEYWORD2>
+<KEYWORD2>addChild</KEYWORD2>
+
+<KEYWORD1>PShader</KEYWORD1>
+<KEYWORD2>loadShader</KEYWORD2>
+<KEYWORD2>resetShader</KEYWORD2>
+<KEYWORD2>bind</KEYWORD2>
+<KEYWORD2>shader</KEYWORD2>
+  
+<KEYWORD2>blendMode</KEYWORD2>
+  
+<KEYWORD2>selectInput</KEYWORD2>
+<KEYWORD2>selectOutput</KEYWORD2>
+<KEYWORD2>selectFolder</KEYWORD2>
+  
+<KEYWORD2>saveType</KEYWORD2>
+<KEYWORD2>loadType</KEYWORD2>
+<KEYWORD2>clip</KEYWORD2>
+<KEYWORD2>noClip</KEYWORD2>
+<!--End Temporary additions 3 September 2012 as the reference is getting updated-->
       <KEYWORD2>abs</KEYWORD2>
       <KEYWORD2>acos</KEYWORD2>
       <KEYWORD2>alpha</KEYWORD2>
@@ -370,13 +389,10 @@ in import statements. -->
       <KEYWORD2>box</KEYWORD2>
       <KEYWORD1>break</KEYWORD1>
       <KEYWORD2>brightness</KEYWORD2>
-      <KEYWORD2>BufferedReader</KEYWORD2>
-      <KEYWORD2>readLine</KEYWORD2>
       <KEYWORD1>byte</KEYWORD1>
       <KEYWORD2>byte</KEYWORD2>
       <KEYWORD2>camera</KEYWORD2>
       <KEYWORD1>case</KEYWORD1>
-      <KEYWORD1>catch</KEYWORD1>
       <KEYWORD2>ceil</KEYWORD2>
       <KEYWORD1>char</KEYWORD1>
       <KEYWORD2>char</KEYWORD2>
@@ -430,8 +446,6 @@ in import statements. -->
       <KEYWORD1>float</KEYWORD1>
       <KEYWORD2>float</KEYWORD2>
       <KEYWORD2>floor</KEYWORD2>
-      <KEYWORD3>focusGained</KEYWORD3>
-      <KEYWORD3>focusLost</KEYWORD3>
       <LITERAL2>focused</LITERAL2>
       <KEYWORD1>for</KEYWORD1>
       <LITERAL2>frameCount</LITERAL2>
@@ -566,7 +580,8 @@ in import statements. -->
       <KEYWORD2>disableStyle</KEYWORD2>
       <KEYWORD2>enableStyle</KEYWORD2>
       <KEYWORD2>getChild</KEYWORD2>
-      <LITERAL2>height</LITERAL2>
+      <KEYWORD2>getHeight</KEYWORD2>
+      <KEYWORD2>getWidth</KEYWORD2>
       <KEYWORD2>isVisible</KEYWORD2>
       <KEYWORD2>resetMatrix</KEYWORD2>
       <KEYWORD2>rotate</KEYWORD2>
@@ -575,8 +590,9 @@ in import statements. -->
       <KEYWORD2>rotateZ</KEYWORD2>
       <KEYWORD2>scale</KEYWORD2>
       <KEYWORD2>setVisible</KEYWORD2>
+      <KEYWORD2>skewX</KEYWORD2>
+      <KEYWORD2>skewY</KEYWORD2>
       <KEYWORD2>translate</KEYWORD2>
-      <LITERAL2>width</LITERAL2>
       <KEYWORD1>public</KEYWORD1>
       <KEYWORD2>pushMatrix</KEYWORD2>
       <KEYWORD3>pushStyle</KEYWORD3>
@@ -597,7 +613,6 @@ in import statements. -->
       <KEYWORD2>set</KEYWORD2>
       <KEYWORD2>sub</KEYWORD2>
       <KEYWORD2>quad</KEYWORD2>
-      <LITERAL2>QUARTER_PI</LITERAL2>
       <KEYWORD2>radians</KEYWORD2>
       <KEYWORD2>random</KEYWORD2>
       <KEYWORD2>randomSeed</KEYWORD2>
@@ -621,9 +636,9 @@ in import statements. -->
       <KEYWORD2>saveStream</KEYWORD2>
       <KEYWORD2>saveStrings</KEYWORD2>
       <KEYWORD2>scale</KEYWORD2>
+      <KEYWORD2>skewX</KEYWORD2>
+      <KEYWORD2>skewY</KEYWORD2>
       <LITERAL2>screen</LITERAL2>
-      <LITERAL2>screenHeight</LITERAL2>
-      <LITERAL2>screenWidth</LITERAL2>
       <KEYWORD2>screenX</KEYWORD2>
       <KEYWORD2>screenY</KEYWORD2>
       <KEYWORD2>screenZ</KEYWORD2>
@@ -635,8 +650,6 @@ in import statements. -->
       <KEYWORD3>setup</KEYWORD3>
       <KEYWORD2>shape</KEYWORD2>
       <KEYWORD2>shapeMode</KEYWORD2>
-      <KEYWORD2>shearX</KEYWORD2>
-      <KEYWORD2>shearY</KEYWORD2>
       <KEYWORD2>shininess</KEYWORD2>
       <KEYWORD2>shorten</KEYWORD2>
       <KEYWORD2>sin</KEYWORD2>
@@ -688,7 +701,6 @@ in import statements. -->
       <KEYWORD2>triangle</KEYWORD2>
       <KEYWORD2>trim</KEYWORD2>
       <KEYWORD1>true</KEYWORD1>
-      <KEYWORD1>try</KEYWORD1>
       <LITERAL2>TWO_PI</LITERAL2>
       <KEYWORD2>unbinary</KEYWORD2>
       <KEYWORD2>unhex</KEYWORD2>
@@ -702,11 +714,12 @@ in import statements. -->
       <KEYWORD2>getChildCount</KEYWORD2>
       <KEYWORD2>getChildren</KEYWORD2>
       <KEYWORD2>getContent</KEYWORD2>
-      <KEYWORD2>getFloat</KEYWORD2>
-      <KEYWORD2>getInt</KEYWORD2>
+      <KEYWORD2>getFloatAttribute</KEYWORD2>
+      <KEYWORD2>getIntAttribute</KEYWORD2>
       <KEYWORD2>getName</KEYWORD2>
-      <KEYWORD2>getString</KEYWORD2>
+      <KEYWORD2>getStringAttribute</KEYWORD2>
       <KEYWORD2>year</KEYWORD2>
+
     </KEYWORDS>
   </RULES>
 
