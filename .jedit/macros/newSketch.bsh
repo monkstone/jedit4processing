@@ -3,6 +3,6 @@
 Buffer newBuffer = jEdit.newFile(view);
 view.goToBuffer(newBuffer);
 newBuffer.setMode("processing");
-textArea.setSelectedText("setup3d");
+textArea.setSelectedText("setup3d#800#600#");
 Abbrevs.expandAbbrev(view,true);
 buffer.saveAs(view,true);

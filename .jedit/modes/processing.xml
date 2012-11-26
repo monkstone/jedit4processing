@@ -2,8 +2,8 @@
 <!-- JEdit edit mode/syntax colouring definition for Processing 2.0 'java' source files
 
 author: Martin Prout (based on default java edit mode, keywords.txt and toxis original)
-version 1.5
-last modified: 2012-Nov-22
+version 1.4
+last modified: 2012-Nov-10
 
 installation:
 =============
@@ -95,11 +95,8 @@ syntax colouring for PDE files should now be ready.
 
 		<!-- Annotation types -->
 		<MARK_FOLLOWING TYPE="KEYWORD4">@</MARK_FOLLOWING>
-
-			
 		<KEYWORDS>
 <!-- KEYWORD1 - Java datatypes and keywords-->
-			<KEYWORD1>#</KEYWORD1>
 <!-- KEYWORD1 specifies datatypes and keywords-->
 			<KEYWORD1>Array</KEYWORD1>
 			<KEYWORD1>ArrayList</KEYWORD1>
@@ -168,11 +165,13 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD1>volatile</KEYWORD1>
 			<KEYWORD1>while</KEYWORD1>
 			<KEYWORD1>color</KEYWORD1>
+			<KEYWORD1>PShape</KEYWORD1>
+			<KEYWORD1>PShader</KEYWORD1>
 			<KEYWORD1>PFont</KEYWORD1>
 			<KEYWORD1>PImage</KEYWORD1>
-			<KEYWORD1>PShape</KEYWORD1>
 			<KEYWORD1>PVector</KEYWORD1>
 <!-- KEYWORD2 - functions-->
+<!-- XXX KEYWORD2 - fields (variables inside a class)-->
 			<KEYWORD2>arraycopy</KEYWORD2>
 			<KEYWORD2>openStream</KEYWORD2>
 <!-- KEYWORD2 specifies functions and KEYWORD3 specifies methods-->
@@ -181,7 +180,6 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>stop</KEYWORD2>
 			<KEYWORD2>breakShape</KEYWORD2>
 			<KEYWORD2>createPath</KEYWORD2>
-			<KEYWORD2>str</KEYWORD2>
 			<KEYWORD2>loadMatrix</KEYWORD2>
 			<KEYWORD2>noHint</KEYWORD2>
 			<KEYWORD2>parseBoolean</KEYWORD2>
@@ -194,10 +192,21 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>sketchFile</KEYWORD2>
 			<KEYWORD2>sketchPath</KEYWORD2>
 			<KEYWORD2>string</KEYWORD2>
+			<KEYWORD2>createShape</KEYWORD2>
 			<KEYWORD2>beginContour</KEYWORD2>
 			<KEYWORD2>endContour</KEYWORD2>
 			<KEYWORD2>end</KEYWORD2>
 			<KEYWORD2>addChild</KEYWORD2>
+			<KEYWORD2>loadShader</KEYWORD2>
+			<KEYWORD2>resetShader</KEYWORD2>
+			<KEYWORD2>bind</KEYWORD2>
+			<KEYWORD2>shader</KEYWORD2>
+			<KEYWORD2>blendMode</KEYWORD2>
+			<KEYWORD2>selectInput</KEYWORD2>
+			<KEYWORD2>selectOutput</KEYWORD2>
+			<KEYWORD2>selectFolder</KEYWORD2>
+			<KEYWORD2>saveType</KEYWORD2>
+			<KEYWORD2>loadType</KEYWORD2>
 			<KEYWORD2>clip</KEYWORD2>
 			<KEYWORD2>noClip</KEYWORD2>
 			<KEYWORD2>abs</KEYWORD2>
@@ -225,7 +234,6 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>binary</KEYWORD2>
 			<KEYWORD2>blend</KEYWORD2>
 			<KEYWORD2>blendColor</KEYWORD2>
-			<KEYWORD2>blendMode</KEYWORD2>
 			<KEYWORD2>blue</KEYWORD2>
 			<KEYWORD2>box</KEYWORD2>
 			<KEYWORD2>brightness</KEYWORD2>
@@ -242,7 +250,6 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>createInput</KEYWORD2>
 			<KEYWORD2>createOutput</KEYWORD2>
 			<KEYWORD2>createReader</KEYWORD2>
-			<KEYWORD2>createShape</KEYWORD2>
 			<KEYWORD2>createWriter</KEYWORD2>
 			<KEYWORD2>cursor</KEYWORD2>
 			<KEYWORD2>curve</KEYWORD2>
@@ -293,11 +300,8 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>loadFont</KEYWORD2>
 			<KEYWORD2>loadImage</KEYWORD2>
 			<KEYWORD2>loadPixels</KEYWORD2>
-			<KEYWORD2>loadShader</KEYWORD2>
 			<KEYWORD2>loadShape</KEYWORD2>
 			<KEYWORD2>loadStrings</KEYWORD2>
-			<KEYWORD2>loadTable</KEYWORD2>
-			<KEYWORD2>loadXML</KEYWORD2>
 			<KEYWORD2>log</KEYWORD2>
 			<KEYWORD2>loop</KEYWORD2>
 			<KEYWORD2>mag</KEYWORD2>
@@ -338,6 +342,7 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>perspective</KEYWORD2>
 			<KEYWORD2>list</KEYWORD2>
 			<KEYWORD2>PGraphics</KEYWORD2>
+			<KEYWORD2>pixels</KEYWORD2>
 			<KEYWORD2>point</KEYWORD2>
 			<KEYWORD2>pointLight</KEYWORD2>
 			<KEYWORD2>popMatrix</KEYWORD2>
@@ -348,9 +353,11 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>println</KEYWORD2>
 			<KEYWORD2>printMatrix</KEYWORD2>
 			<KEYWORD2>printProjection</KEYWORD2>
-			<KEYWORD2>PShader</KEYWORD2>
 			<KEYWORD2>pushMatrix</KEYWORD2>
 			<KEYWORD2>pushStyle</KEYWORD2>
+			<KEYWORD2>x</KEYWORD2>
+			<KEYWORD2>y</KEYWORD2>
+			<KEYWORD2>z</KEYWORD2>
 			<KEYWORD2>quad</KEYWORD2>
 			<KEYWORD2>quadraticVertex</KEYWORD2>
 			<KEYWORD2>radians</KEYWORD2>
@@ -362,7 +369,6 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>redraw</KEYWORD2>
 			<KEYWORD2>requestImage</KEYWORD2>
 			<KEYWORD2>resetMatrix</KEYWORD2>
-			<KEYWORD2>resetShader</KEYWORD2>
 			<KEYWORD2>reverse</KEYWORD2>
 			<KEYWORD2>rotate</KEYWORD2>
 			<KEYWORD2>rotateX</KEYWORD2>
@@ -380,12 +386,8 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>screenY</KEYWORD2>
 			<KEYWORD2>screenZ</KEYWORD2>
 			<KEYWORD2>second</KEYWORD2>
-			<KEYWORD2>selectFolder</KEYWORD2>
-			<KEYWORD2>selectInput</KEYWORD2>
-			<KEYWORD2>selectOutput</KEYWORD2>
 			<KEYWORD2>set</KEYWORD2>
 			<KEYWORD2>setup</KEYWORD2>
-			<KEYWORD2>shader</KEYWORD2>
 			<KEYWORD2>shape</KEYWORD2>
 			<KEYWORD2>shapeMode</KEYWORD2>
 			<KEYWORD2>shearX</KEYWORD2>
@@ -410,7 +412,6 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>strokeJoin</KEYWORD2>
 			<KEYWORD2>strokeWeight</KEYWORD2>
 			<KEYWORD2>subset</KEYWORD2>
-			<KEYWORD2>Table</KEYWORD2>
 			<KEYWORD2>tan</KEYWORD2>
 			<KEYWORD2>text</KEYWORD2>
 			<KEYWORD2>textAlign</KEYWORD2>
@@ -422,7 +423,6 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>textSize</KEYWORD2>
 			<KEYWORD2>texture</KEYWORD2>
 			<KEYWORD2>textureMode</KEYWORD2>
-			<KEYWORD2>textureWrap</KEYWORD2>
 			<KEYWORD2>textWidth</KEYWORD2>
 			<KEYWORD2>tint</KEYWORD2>
 			<KEYWORD2>translate</KEYWORD2>
@@ -434,11 +434,9 @@ syntax colouring for PDE files should now be ready.
 			<KEYWORD2>vertex</KEYWORD2>
 			<KEYWORD2>XML</KEYWORD2>
 			<KEYWORD2>year</KEYWORD2>
-			<KEYWORD3>#</KEYWORD3>
-			<KEYWORD3>#</KEYWORD3>
 <!--KEYWORD3 is an experimental designation for methods-->
-			<KEYWORD3>#KEYWORD3</KEYWORD3>
 <!-- LITERAL2 - constants-->
+<!-- XXX LITERAL2 - Processing variables (width, height, focused, etc.)-->
 <!-- LITERAL2 specifies constants-->
 			<LITERAL1>ADD</LITERAL1>
 			<LITERAL1>ALIGN_CENTER</LITERAL1>
@@ -460,8 +458,6 @@ syntax colouring for PDE files should now be ready.
 			<LITERAL1>BURN</LITERAL1>
 			<LITERAL1>CENTER</LITERAL1>
 			<LITERAL1>CHATTER</LITERAL1>
-			<LITERAL1>CLAMP</LITERAL1>
-			<LITERAL1>CLICK</LITERAL1>
 			<LITERAL1>CLOSE</LITERAL1>
 			<LITERAL1>CMYK</LITERAL1>
 			<LITERAL1>CODED</LITERAL1>
@@ -485,27 +481,28 @@ syntax colouring for PDE files should now be ready.
 			<LITERAL1>DILATE</LITERAL1>
 			<LITERAL1>DIRECTIONAL</LITERAL1>
 			<LITERAL1>DISABLE_ACCURATE_2D</LITERAL1>
-			<LITERAL1>DISABLE_DEPTH_MASK</LITERAL1>
+			<LITERAL1>DISABLE_ACCURATE_TEXTURES</LITERAL1>
+			<LITERAL1>DISABLE_DEPTH_MASKS</LITERAL1>
 			<LITERAL1>DISABLE_DEPTH_SORT</LITERAL1>
 			<LITERAL1>DISABLE_DEPTH_TEST</LITERAL1>
 			<LITERAL1>DISABLE_NATIVE_FONTS</LITERAL1>
 			<LITERAL1>DISABLE_OPENGL_ERRORS</LITERAL1>
-			<LITERAL1>DISABLE_PURE_STROKE</LITERAL1>
+			<LITERAL1>DISABLE_TEXTURE_CACHE</LITERAL1>
 			<LITERAL1>DISABLE_TEXTURE_MIPMAPS</LITERAL1>
 			<LITERAL1>DISABLE_TRANSFORM_CACHE</LITERAL1>
 			<LITERAL1>DISABLE_STROKE_PERSPECTIVE</LITERAL1>
 			<LITERAL1>DISABLED</LITERAL1>
 			<LITERAL1>DODGE</LITERAL1>
 			<LITERAL1>DOWN</LITERAL1>
-			<LITERAL1>DRAG</LITERAL1>
 			<LITERAL1>DXF</LITERAL1>
 			<LITERAL1>ENABLE_ACCURATE_2D</LITERAL1>
-			<LITERAL1>ENABLE_DEPTH_MASK</LITERAL1>
+			<LITERAL1>ENABLE_ACCURATE_TEXTURES</LITERAL1>
+			<LITERAL1>ENABLE_DEPTH_MASKS</LITERAL1>
 			<LITERAL1>ENABLE_DEPTH_SORT</LITERAL1>
 			<LITERAL1>ENABLE_DEPTH_TEST</LITERAL1>
 			<LITERAL1>ENABLE_NATIVE_FONTS</LITERAL1>
 			<LITERAL1>ENABLE_OPENGL_ERRORS</LITERAL1>
-			<LITERAL1>ENABLE_PURE_STROKE</LITERAL1>
+			<LITERAL1>ENABLE_TEXTURE_CACHE</LITERAL1>
 			<LITERAL1>ENABLE_TEXTURE_MIPMAPS</LITERAL1>
 			<LITERAL1>ENABLE_TRANSFORM_CACHE</LITERAL1>
 			<LITERAL1>ENABLE_STROKE_PERSPECTIVE</LITERAL1>
@@ -514,7 +511,6 @@ syntax colouring for PDE files should now be ready.
 			<LITERAL1>ERODE</LITERAL1>
 			<LITERAL1>ESC</LITERAL1>
 			<LITERAL1>EXCLUSION</LITERAL1>
-			<LITERAL1>EXIT</LITERAL1>
 			<LITERAL1>GIF</LITERAL1>
 			<LITERAL1>GRAY</LITERAL1>
 			<LITERAL1>GREEN_MASK</LITERAL1>
@@ -558,7 +554,6 @@ syntax colouring for PDE files should now be ready.
 			<LITERAL1>POINT</LITERAL1>
 			<LITERAL1>POINTS</LITERAL1>
 			<LITERAL1>POSTERIZE</LITERAL1>
-			<LITERAL1>PRESS</LITERAL1>
 			<LITERAL1>PROBLEM</LITERAL1>
 			<LITERAL1>PROJECT</LITERAL1>
 			<LITERAL1>QUAD_STRIP</LITERAL1>
@@ -568,8 +563,6 @@ syntax colouring for PDE files should now be ready.
 			<LITERAL1>RADIUS</LITERAL1>
 			<LITERAL1>RADIANS</LITERAL1>
 			<LITERAL1>RED_MASK</LITERAL1>
-			<LITERAL1>RELEASE</LITERAL1>
-			<LITERAL1>REPEAT</LITERAL1>
 			<LITERAL1>REPLACE</LITERAL1>
 			<LITERAL1>RETURN</LITERAL1>
 			<LITERAL1>RGB</LITERAL1>
@@ -612,15 +605,15 @@ syntax colouring for PDE files should now be ready.
 			<LITERAL1>mouseButton</LITERAL1>
 			<LITERAL1>mouseX</LITERAL1>
 			<LITERAL1>mouseY</LITERAL1>
-			<LITERAL1>pixels</LITERAL1>
 			<LITERAL1>pmouseX</LITERAL1>
 			<LITERAL1>pmouseY</LITERAL1>
 			<LITERAL1>screenHeight</LITERAL1>
 			<LITERAL1>screenWidth</LITERAL1>
 			<LITERAL1>width</LITERAL1>
 		</KEYWORDS>
+		
 	</RULES>
-               <!--{{{ DOUBLEQUOTE_LITERAL rule -->
+<!--{{{ DOUBLEQUOTE_LITERAL rule -->
 	<RULES SET="DOUBLEQUOTE_LITERAL" DEFAULT="LITERAL1" IGNORE_CASE="TRUE">
 		<SEQ TYPE="LITERAL4">\"</SEQ>
 		<SEQ TYPE="LITERAL4">\n</SEQ>
@@ -629,7 +622,7 @@ syntax colouring for PDE files should now be ready.
 		<SEQ_REGEXP HASH_CHAR="\u" TYPE="LITERAL4">\\u[a-f\d]{4}</SEQ_REGEXP>
 	</RULES> <!--}}}-->
 	
-	       <!--{{{ SIMPLEQUOTE_LITERAL rule -->
+	<!--{{{ SIMPLEQUOTE_LITERAL rule -->
 	<RULES SET="SIMPLEQUOTE_LITERAL" DEFAULT="LITERAL3" IGNORE_CASE="TRUE">
 		<SEQ TYPE="LITERAL4">\'</SEQ>
 		<SEQ TYPE="LITERAL4">\n</SEQ>
@@ -638,7 +631,7 @@ syntax colouring for PDE files should now be ready.
 		<SEQ_REGEXP HASH_CHAR="\u" TYPE="LITERAL4">\\u[a-f\d]{4}</SEQ_REGEXP>
 	</RULES> <!--}}}-->
 
-	        <!--{{{ JAVADOC rules -->
+	<!--{{{ JAVADOC rules -->
 	<RULES SET="JAVADOC" DEFAULT="COMMENT3" IGNORE_CASE="TRUE">
 
 		<!-- so that *@param is highlighted -->
@@ -767,4 +760,3 @@ syntax colouring for PDE files should now be ready.
 	<!-- just a dummy which makes use of the default token type COMMENT4 for highlighting the word after @param in javadoc -->
 	<RULES SET="JAVADOC_PARAM" DEFAULT="COMMENT4" IGNORE_CASE="TRUE" />
 </MODE>
-

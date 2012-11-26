@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE COMMANDO SYSTEM "commando.dtd"><!-- processing commando -->
-<!-- Monkstone, 2012-Oct-25 -->
+<!-- Monkstone, 2012-Nov-07 -->
 <COMMANDO>
     <UI>
-        <CAPTION LABEL="Run Processing">
-            <FILE_ENTRY LABEL="pde file" VARNAME="pde" EVAL="MiscUtilities.getParentOfPath(buffer.getPath())"/>
+        <CAPTION LABEL="Run Processing">        
+        <ENTRY LABEL="Source File(s)">
+            <FILE_ENTRY LABEL="File Name" VARNAME="file" EVAL="buffer.getName()"/>
+            <DIR_ENTRY LABEL="Running Directory" VARNAME="pde" EVAL="buffer.getDirectory()"/>
+        </ENTRY>
         </CAPTION>
-
         <CAPTION LABEL="Path to processing-java">
             <ENTRY LABEL="(no spaces)" VARNAME="processing"/>
         </CAPTION>
@@ -18,7 +20,7 @@
             <OPTION LABEL="Run" VALUE=" --run"/>
             <OPTION LABEL="Present" VALUE=" --present"/>
             <OPTION LABEL="Compile" VALUE=" --build"/>
-           <OPTION LABEL="Export" VALUE=" --export"/> 
+            <OPTION LABEL="Export" VALUE=" --export"/>
         </CHOICE>
         <CAPTION LABEL="Export Options">
             <CHOICE LABEL="Platform" VARNAME="platform" DEFAULT="windows">
@@ -27,14 +29,15 @@
                 <OPTION LABEL="linux" VALUE="linux"/>
             </CHOICE>
             <TOGGLE LABEL="64 bit" VARNAME="bit" />
-        </CAPTION>  
+        </CAPTION>
     </UI>
     <COMMANDS>
         <COMMAND SHELL="System" CONFIRM="FALSE">
         buf = new StringBuilder(100);	
+        if (file.endsWith(".pde")){
+        buf = new StringBuilder(100);	
         buf.append(processing);
 	    buf.append(cmd);
-
 	    buf.append(" --sketch=").append(pde.replace(" ", "\\ "));
 	    <!-- Be careful specifying your output/tmp folder with force option -->
 	    if(force){
@@ -53,7 +56,11 @@
 	    buf.append(" --bits=32");
 	    }	    
 	    }
-	    <!-- end export -->
+	    <!-- end export -->	    
+	    }
+	    else{
+	       throw new RuntimeException("Save the sketch first in a folder, bearing the same name!!!!");
+        }       
 	    buf.toString();
         </COMMAND>
     </COMMANDS>
