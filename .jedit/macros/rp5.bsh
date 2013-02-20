@@ -1,0 +1,2 @@
+// rp5.bsh
+new console.commando.CommandoDialog(view,"commando.rp5");

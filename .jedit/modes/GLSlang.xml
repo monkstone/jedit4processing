@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd"><!--
+Base on this original
+========
+GLSlang Release 1.x source mode by 13xforever (13xforever@mail.ru)
+Last modified: 03.02.2006
+
+03.02.2006 update:
+by 13xforever for GLSlang Version 1.10 Revision 59 (30-April-2004)
+
+07.09.2006 update:
+by 13xforever for new RegEx engine
+
+updated by: monkstone
+
+last modified: 2013-02-20
+
+installation:
+=============
+
+1) put this file into the /modes directory inside the JEdit root folder
+2) copy&paste the following XML node into the file "catalog" inside the same folder
+
+<MODE NAME="glsl" FILE="GLSLlang.xml" FILE_NAME_GLOB="*.glsl" />
+
+syntax colouring for glsl files should now be ready.
+-->
+
+
+<MODE>
+  <PROPS>
+    <PROPERTY NAME="commentStart" VALUE="/*"/>
+    <PROPERTY NAME="commentEnd" VALUE="*/"/>
+    <PROPERTY NAME="lineComment" VALUE="//"/>
+    <PROPERTY NAME="wordBreakChars" VALUE=".,+-*/=&lt;&gt;?^&amp;[]{}"/>
+
+		<!-- Auto indent -->
+    <PROPERTY NAME="indentOpenBrackets" VALUE="{" />
+    <PROPERTY NAME="indentCloseBrackets" VALUE="}"/>
+    <PROPERTY NAME="indentNextLine" VALUE="\s*(((if|while)\s*\(|else\s*|else\s+if\s*\(|for\s*\(.*\))[^{;]*)" />
+		<!-- set this to 'true' if you want to use GNU coding style -->
+    <PROPERTY NAME="doubleBracketIndent" VALUE="false"/>
+    <PROPERTY NAME="lineUpClosingBracket" VALUE="true"/>
+  </PROPS>
+  <RULES ESCAPE="\" NO_WORD_SEP="" IGNORE_CASE="FALSE" HIGHLIGHT_DIGITS="TRUE" DIGIT_RE="(0[xX][[:xdigit:]]+|[[:digit:]]+([eE][[:digit:]]+)?)">
+		<!-- C style comment -->
+    <SPAN TYPE="COMMENT1">
+      <BEGIN>/*</BEGIN>
+      <END>*/</END>
+    </SPAN>
+    <EOL_SPAN TYPE="COMMENT2">//</EOL_SPAN>
+
+    <!-- Operators -->
+    <SEQ TYPE="OPERATOR">+</SEQ>
+    <SEQ TYPE="OPERATOR">-</SEQ>
+    <SEQ TYPE="OPERATOR">~</SEQ>
+    <SEQ TYPE="OPERATOR">!</SEQ>
+    <SEQ TYPE="OPERATOR">*</SEQ>
+    <SEQ TYPE="OPERATOR">/</SEQ>
+    <SEQ TYPE="OPERATOR">%</SEQ>
+    <SEQ TYPE="OPERATOR">&gt;</SEQ>
+    <SEQ TYPE="OPERATOR">&lt;</SEQ>
+    <SEQ TYPE="OPERATOR">=</SEQ>
+    <SEQ TYPE="OPERATOR">&amp;</SEQ>
+    <SEQ TYPE="OPERATOR">^</SEQ>
+    <SEQ TYPE="OPERATOR">|</SEQ>
+    <SEQ TYPE="OPERATOR">?</SEQ>
+    <SEQ TYPE="OPERATOR">:</SEQ>
+    <SEQ TYPE="OPERATOR">,</SEQ>
+
+    <SEQ TYPE="OPERATOR">;</SEQ>
+    <SEQ TYPE="OPERATOR">[</SEQ>
+    <SEQ TYPE="OPERATOR">]</SEQ>
+
+    <!-- Vector Components -->
+    <SEQ_REGEXP TYPE="OPERATOR" HASH_CHAR=".">.(([xyzw]{1,4})|([rgba]{1,4})|([stpq]{1,4}))(?!\p{Alnum})</SEQ_REGEXP>
+
+    <!-- The following predefined macros are available -->
+    <SEQ TYPE="LITERAL2">__LINE__</SEQ>
+    <SEQ TYPE="LITERAL2">__FILE__</SEQ>
+    <SEQ TYPE="LITERAL2">__VERSION__</SEQ>
+
+    <!-- Reserved words (GL_*, etc.) -->
+    <SEQ_REGEXP TYPE="INVALID" HASH_CHAR="_">__\p{Alnum}*</SEQ_REGEXP>
+    <SEQ_REGEXP TYPE="INVALID" HASH_CHAR="G">GL_\p{Alnum}*</SEQ_REGEXP>
+
+		<!-- Function calls -->
+   <!--    <MARK_PREVIOUS TYPE="FUNCTION">::</MARK_PREVIOUS> -->
+    <MARK_PREVIOUS TYPE="FUNCTION" MATCH_TYPE="OPERATOR">(</MARK_PREVIOUS>
+    <SEQ TYPE="OPERATOR">)</SEQ>
+
+    <KEYWORDS>
+      <!-- The complete list of preprocessor directives is as follows. -->
+      <KEYWORD2>#define</KEYWORD2>
+      <KEYWORD2>#undef</KEYWORD2>
+      <KEYWORD2>#if</KEYWORD2>
+      <KEYWORD2>#ifdef</KEYWORD2>
+      <KEYWORD2>#ifndef</KEYWORD2>
+      <KEYWORD2>#else</KEYWORD2>
+      <KEYWORD2>#elif</KEYWORD2>
+      <KEYWORD2>#endif</KEYWORD2>
+      <KEYWORD2>#error</KEYWORD2>
+      <KEYWORD2>#pragma</KEYWORD2>
+      <KEYWORD2>#extension</KEYWORD2>
+      <KEYWORD2>#version</KEYWORD2>
+      <KEYWORD2>#line</KEYWORD2>
+      <KEYWORD2>#</KEYWORD2>
+
+      <!-- Operators -->
+      <OPERATOR>defined</OPERATOR>
+
+			<!-- Reserved, but not implimented yet -->
+      <INVALID>asm</INVALID>
+      <INVALID>class</INVALID>
+      <INVALID>union</INVALID>
+      <INVALID>enum</INVALID>
+      <INVALID>typedef</INVALID>
+      <INVALID>template</INVALID>
+      <INVALID>this</INVALID>
+      <INVALID>packed</INVALID>
+      <INVALID>goto</INVALID>
+      <INVALID>switch</INVALID>
+      <INVALID>default</INVALID>
+      <INVALID>inline</INVALID>
+      <INVALID>noinline</INVALID>
+      <INVALID>volatile</INVALID>
+      <INVALID>public</INVALID>
+      <INVALID>static</INVALID>
+      <INVALID>extern</INVALID>
+      <INVALID>external</INVALID>
+      <INVALID>interface</INVALID>
+      <INVALID>long</INVALID>
+      <INVALID>short</INVALID>
+      <INVALID>double</INVALID>
+      <INVALID>half</INVALID>
+      <INVALID>fixed</INVALID>
+      <INVALID>unsigned</INVALID>
+      <INVALID>input</INVALID>
+      <INVALID>output</INVALID>
+      <INVALID>hvec2</INVALID>
+      <INVALID>hvec3</INVALID>
+      <INVALID>hvec4</INVALID>
+      <INVALID>dvec2</INVALID>
+      <INVALID>dvec3</INVALID>
+      <INVALID>dvec4</INVALID>
+      <INVALID>fvec2</INVALID>
+      <INVALID>fvec3</INVALID>
+      <INVALID>fvec4</INVALID>
+      <INVALID>sampler2DRect</INVALID>
+      <INVALID>sampler3DRect</INVALID>
+      <INVALID>sampler2DRectShadow</INVALID>
+      <INVALID>sizeof</INVALID>
+      <INVALID>cast</INVALID>
+      <INVALID>namespace</INVALID>
+      <INVALID>using</INVALID>
+
+      <!-- Type Qualifiers -->
+      <KEYWORD1>const</KEYWORD1>
+      <KEYWORD1>attribute</KEYWORD1>
+      <KEYWORD1>uniform</KEYWORD1>
+      <KEYWORD1>varying</KEYWORD1>
+      <KEYWORD1>in</KEYWORD1>
+      <KEYWORD1>out</KEYWORD1>
+      <KEYWORD1>inout</KEYWORD1>
+
+      <!-- Selection -->
+      <KEYWORD1>if</KEYWORD1>
+      <KEYWORD1>else</KEYWORD1>
+
+      <!-- Iteration -->
+      <KEYWORD1>do</KEYWORD1>
+      <KEYWORD1>for</KEYWORD1>
+      <KEYWORD1>while</KEYWORD1>
+
+      <!-- Jumps -->
+      <KEYWORD1>discard</KEYWORD1>
+      <KEYWORD1>return</KEYWORD1>
+      <KEYWORD1>break</KEYWORD1>
+      <KEYWORD1>continue</KEYWORD1>
+
+      <!-- Other -->
+      <KEYWORD1>struct</KEYWORD1>
+      <KEYWORD1>precision</KEYWORD1>
+
+      <!-- BUILT-IN FUNCTIONS -->
+			<!-- Angle and Trigonometry Functions -->
+      <KEYWORD2>radians</KEYWORD2>
+      <KEYWORD2>degrees</KEYWORD2>
+      <KEYWORD2>sin</KEYWORD2>
+      <KEYWORD2>cos</KEYWORD2>
+      <KEYWORD2>tan</KEYWORD2>
+      <KEYWORD2>asin</KEYWORD2>
+      <KEYWORD2>acos</KEYWORD2>
+      <KEYWORD2>atan</KEYWORD2>
+      <KEYWORD2>atan</KEYWORD2>
+
+			<!-- Exponential Functions -->
+      <KEYWORD2>pow</KEYWORD2>
+      <KEYWORD2>exp</KEYWORD2>
+      <KEYWORD2>log</KEYWORD2>
+      <KEYWORD2>exp2</KEYWORD2>
+      <KEYWORD2>log2</KEYWORD2>
+      <KEYWORD2>sqrt</KEYWORD2>
+      <KEYWORD2>inversesqrt</KEYWORD2>
+
+			<!-- Common Functions -->
+      <KEYWORD2>abs</KEYWORD2>
+      <KEYWORD2>sign</KEYWORD2>
+      <KEYWORD2>floor</KEYWORD2>
+      <KEYWORD2>ceil</KEYWORD2>
+      <KEYWORD2>fract</KEYWORD2>
+      <KEYWORD2>mod</KEYWORD2>
+      <KEYWORD2>min</KEYWORD2>
+      <KEYWORD2>max</KEYWORD2>
+      <KEYWORD2>clamp</KEYWORD2>
+      <KEYWORD2>mix</KEYWORD2>
+      <KEYWORD2>step</KEYWORD2>
+      <KEYWORD2>smoothstep</KEYWORD2>
+
+			<!-- Geometric Functions -->
+      <KEYWORD2>length</KEYWORD2>
+      <KEYWORD2>distance</KEYWORD2>
+      <KEYWORD2>dot</KEYWORD2>
+      <KEYWORD2>cross</KEYWORD2>
+      <KEYWORD2>normalize</KEYWORD2>
+      <KEYWORD2>ftransform</KEYWORD2>
+      <KEYWORD2>faceforward</KEYWORD2>
+      <KEYWORD2>reflect</KEYWORD2>
+      <KEYWORD2>refract</KEYWORD2>
+
+			<!-- Matrix Functions -->
+      <KEYWORD2>matrixCompMult</KEYWORD2>
+
+			<!-- Vector Relat ional Functions -->
+      <KEYWORD2>lessThan</KEYWORD2>
+      <KEYWORD2>lessThanEqual</KEYWORD2>
+      <KEYWORD2>greaterThan</KEYWORD2>
+      <KEYWORD2>greaterThanEqual</KEYWORD2>
+      <KEYWORD2>equal</KEYWORD2>
+      <KEYWORD2>notEqual</KEYWORD2>
+      <KEYWORD2>any</KEYWORD2>
+      <KEYWORD2>all</KEYWORD2>
+      <KEYWORD2>not</KEYWORD2>
+
+			<!-- Texture Lookup Functions -->
+      <KEYWORD2>texture1D</KEYWORD2>
+      <KEYWORD2>texture1DProj</KEYWORD2>
+      <KEYWORD2>texture1DLod</KEYWORD2>
+      <KEYWORD2>texture1DProjLod</KEYWORD2>
+      <KEYWORD2>texture2D</KEYWORD2>
+      <KEYWORD2>texture2DProj</KEYWORD2>
+      <KEYWORD2>texture2DLod</KEYWORD2>
+      <KEYWORD2>texture2DProjLod</KEYWORD2>
+      <KEYWORD2>texture3D</KEYWORD2>
+      <KEYWORD2>texture3DProj</KEYWORD2>
+      <KEYWORD2>texture3DLod</KEYWORD2>
+      <KEYWORD2>texture3DProjLod</KEYWORD2>
+      <KEYWORD2>textureCube</KEYWORD2>
+      <KEYWORD2>textureCubeLod</KEYWORD2>
+      <KEYWORD2>shadow1D</KEYWORD2>
+      <KEYWORD2>shadow2D</KEYWORD2>
+      <KEYWORD2>shadow1DProj</KEYWORD2>
+      <KEYWORD2>shadow2DProj</KEYWORD2>
+      <KEYWORD2>shadow1DLod</KEYWORD2>
+      <KEYWORD2>shadow2DLod</KEYWORD2>
+      <KEYWORD2>shadow1DProjLod</KEYWORD2>
+      <KEYWORD2>shadow2DProjLod</KEYWORD2>
+
+			<!-- Fragment Processing Funct ions -->
+      <KEYWORD2>dFdx</KEYWORD2>
+      <KEYWORD2>dFdy</KEYWORD2>
+      <KEYWORD2>fwidth</KEYWORD2>
+ 
+			<!-- Noise Functions -->
+      <KEYWORD2>noise1</KEYWORD2>
+      <KEYWORD2>noise2</KEYWORD2>
+      <KEYWORD2>noise3</KEYWORD2>
+      <KEYWORD2>noise4</KEYWORD2>
+
+			<!-- Built-in Types -->
+      <KEYWORD3>void</KEYWORD3>
+      <KEYWORD3>bool</KEYWORD3>
+      <KEYWORD3>int</KEYWORD3>
+      <KEYWORD3>float</KEYWORD3>
+
+      <!-- Vector types -->
+      <KEYWORD3>vec2</KEYWORD3>
+      <KEYWORD3>vec3</KEYWORD3>
+      <KEYWORD3>vec4</KEYWORD3>
+      <KEYWORD3>bvec2</KEYWORD3>
+      <KEYWORD3>bvec3</KEYWORD3>
+      <KEYWORD3>bvec4</KEYWORD3>
+      <KEYWORD3>ivec2</KEYWORD3>
+      <KEYWORD3>ivec3</KEYWORD3>
+      <KEYWORD3>ivec4</KEYWORD3>
+
+      <!-- Matrix types -->
+      <KEYWORD3>mat2</KEYWORD3>
+      <KEYWORD3>mat3</KEYWORD3>
+      <KEYWORD3>mat4</KEYWORD3>
+
+      <!-- A handle for accessing a texture -->
+      <KEYWORD3>sampler1D</KEYWORD3>
+      <KEYWORD3>sampler2D</KEYWORD3>
+      <KEYWORD3>sampler3D</KEYWORD3>
+      <KEYWORD3>samplerCube</KEYWORD3>
+      <KEYWORD3>sampler1DShadow</KEYWORD3>
+      <KEYWORD3>sampler2DShadow</KEYWORD3>
+
+			<!-- Predefined Structures -->
+      <KEYWORD4>gl_DepthRangeParameters</KEYWORD4>
+      <KEYWORD4>gl_PointParameters</KEYWORD4>
+      <KEYWORD4>gl_MaterialParameters</KEYWORD4>
+      <KEYWORD4>gl_LightSourceParameters</KEYWORD4>
+      <KEYWORD4>gl_LightModelParameters</KEYWORD4>
+      <KEYWORD4>gl_LightModelProducts</KEYWORD4>
+      <KEYWORD4>gl_LightProducts</KEYWORD4>
+      <KEYWORD4>gl_FogParameters</KEYWORD4>
+
+      <LABEL>main</LABEL>
+
+      <!-- The _behavior_ can be one of the following -->
+      <LABEL>require</LABEL>
+      <LABEL>enable</LABEL>
+      <LABEL>warn</LABEL>
+      <LABEL>disable</LABEL>
+
+      <!-- Vertex Shader Special Variables -->
+      <LITERAL1>gl_Position</LITERAL1>
+      <LITERAL1>gl_PointSize</LITERAL1>
+      <LITERAL1>gl_ClipVertex</LITERAL1>
+
+      <!-- Fragment Shader Special Variables -->
+      <LITERAL1>gl_FragColor</LITERAL1>
+      <LITERAL1>gl_FragData</LITERAL1>
+      <LITERAL1>gl_FragDepth</LITERAL1>
+      <LITERAL1>gl_FragCoord</LITERAL1>
+      <LITERAL1>gl_FrontFacing</LITERAL1>
+
+			<!-- Vertex Shader Built-In Attributes -->
+      <LITERAL1>gl_Color</LITERAL1>
+      <LITERAL1>gl_SecondaryColor</LITERAL1>
+      <LITERAL1>gl_Normal</LITERAL1>
+      <LITERAL1>gl_Vertex</LITERAL1>
+      <LITERAL1>gl_MultiTexCoord0</LITERAL1>
+      <LITERAL1>gl_MultiTexCoord1</LITERAL1>
+      <LITERAL1>gl_MultiTexCoord2</LITERAL1>
+      <LITERAL1>gl_MultiTexCoord3</LITERAL1>
+      <LITERAL1>gl_MultiTexCoord4</LITERAL1>
+      <LITERAL1>gl_MultiTexCoord5</LITERAL1>
+      <LITERAL1>gl_MultiTexCoord6</LITERAL1>
+      <LITERAL1>gl_MultiTexCoord7</LITERAL1>
+      <LITERAL1>gl_FogCoord</LITERAL1>
+
+			<!-- Varying Variables -->
+      <LITERAL1>gl_FrontColor</LITERAL1>
+      <LITERAL1>gl_BackColor</LITERAL1>
+      <LITERAL1>gl_FrontSecondaryColor</LITERAL1>
+      <LITERAL1>gl_BackSecondaryColor</LITERAL1>
+      <LITERAL1>gl_TexCoord</LITERAL1>
+      <LITERAL1>gl_FogFragCoord</LITERAL1>
+
+			<!-- Built-In Constants -->
+      <LITERAL3>gl_MaxLights</LITERAL3>
+      <LITERAL3>gl_MaxClipPlanes</LITERAL3>
+      <LITERAL3>gl_MaxTextureUnits</LITERAL3>
+      <LITERAL3>gl_MaxTextureCoords</LITERAL3>
+      <LITERAL3>gl_MaxVertexAttribs</LITERAL3>
+      <LITERAL3>gl_MaxVertexUniformComponents</LITERAL3>
+      <LITERAL3>gl_MaxVaryingFloats</LITERAL3>
+      <LITERAL3>gl_MaxVertexTextureImageUnits</LITERAL3>
+      <LITERAL3>gl_MaxCombinedTextureImageUnits</LITERAL3>
+      <LITERAL3>gl_MaxTextureImageUnits</LITERAL3>
+      <LITERAL3>gl_MaxFragmentUniformComponents</LITERAL3>
+      <LITERAL3>gl_MaxDrawBuffers</LITERAL3>
+
+      <LITERAL2>PROCESSING_TEXTURE_SHADER</LITERAL2>
+      <LITERAL2>PROCESSING_COLOR_SHADER</LITERAL2>
+ 
+			<!-- Built-In Uniform State -->
+      <LITERAL3>gl_ModelViewMatrix</LITERAL3>
+      <LITERAL3>gl_ProjectionMatrix</LITERAL3>
+      <LITERAL3>gl_ModelViewProjectionMatrix</LITERAL3>
+      <LITERAL3>gl_TextureMatrix</LITERAL3>
+      <LITERAL3>gl_NormalMatrix</LITERAL3>
+      <LITERAL3>gl_ModelViewMatrixInverse</LITERAL3>
+      <LITERAL3>gl_ProjectionMatrixInverse</LITERAL3>
+      <LITERAL3>gl_ModelViewProjectionMatrixInverse</LITERAL3>
+      <LITERAL3>gl_TextureMatrixInverse</LITERAL3>
+      <LITERAL3>gl_ModelViewMatrixTranspose</LITERAL3>
+      <LITERAL3>gl_ProjectionMatrixTranspose</LITERAL3>
+      <LITERAL3>gl_ModelViewProjectionMatrixTranspose</LITERAL3>
+      <LITERAL3>gl_TextureMatrixTranspose</LITERAL3>
+      <LITERAL3>gl_ModelViewMatrixInverseTranspose</LITERAL3>
+      <LITERAL3>gl_ProjectionMatrixInverseTranspose</LITERAL3>
+      <LITERAL3>gl_ModelViewProjectionMatrixInverseTranspose</LITERAL3>
+      <LITERAL3>gl_TextureMatrixInverseTranspose</LITERAL3>
+      <LITERAL3>gl_NormalScale</LITERAL3>
+      <LITERAL3>gl_DepthRange</LITERAL3>
+      <LITERAL3>gl_ClipPlane</LITERAL3>
+      <LITERAL3>gl_Point</LITERAL3>
+      <LITERAL3>gl_FrontMaterial</LITERAL3>
+      <LITERAL3>gl_BackMaterial</LITERAL3>
+      <LITERAL3>gl_LightSource</LITERAL3>
+      <LITERAL3>gl_LightModel</LITERAL3>
+      <LITERAL3>gl_FrontLightModelProduct</LITERAL3>
+      <LITERAL3>gl_BackLightModelProduct</LITERAL3>
+      <LITERAL3>gl_FrontLightProduct</LITERAL3>
+      <LITERAL3>gl_BackLightProduct</LITERAL3>
+      <LITERAL3>gl_TextureEnvColor</LITERAL3>
+      <LITERAL3>gl_EyePlaneS</LITERAL3>
+      <LITERAL3>gl_EyePlaneT</LITERAL3>
+      <LITERAL3>gl_EyePlaneR</LITERAL3>
+      <LITERAL3>gl_EyePlaneQ</LITERAL3>
+      <LITERAL3>gl_ObjectPlaneS</LITERAL3>
+      <LITERAL3>gl_ObjectPlaneT</LITERAL3>
+      <LITERAL3>gl_ObjectPlaneR</LITERAL3>
+      <LITERAL3>gl_ObjectPlaneQ</LITERAL3>
+      <LITERAL3>gl_Fog</LITERAL3>
+
+      <!-- Boolean type -->
+      <LITERAL4>false</LITERAL4>
+      <LITERAL4>true</LITERAL4>
+    </KEYWORDS>
+  </RULES>
+</MODE>
