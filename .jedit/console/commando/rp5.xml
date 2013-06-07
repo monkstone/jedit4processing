@@ -1,36 +1,31 @@
-<!-- rp5.xml a jEdit commando file, for use with ruby-processing
-     Monkstone, 2013-January-06 version 0.13  -->
-
+<?xml version="1.0"?>
+<!DOCTYPE COMMANDO SYSTEM "commando.dtd"><!-- ruby processing commando -->
+<!-- Monkstone, 2013-Jun-07 -->
 <COMMANDO>
-<UI>
-<CAPTION LABEL="Run">
-<FILE_ENTRY LABEL="sketch" VARNAME="sketch" EVAL="buffer.getPath()"/>
-</CAPTION>
-<CAPTION LABEL="Path to rp5">
-<ENTRY LABEL="(no spaces)" VARNAME="rp5" DEFAULT="/var/lib/gems/1.9.1/bin/"/>
-</CAPTION>
-<CAPTION LABEL="Choose Run/Watch/Create/App/Applet">
-<CHOICE LABEL="Select" VARNAME="type" DEFAULT="run" >
-<OPTION  LABEL="run" VALUE="run"/>
-<OPTION LABEL="watch" VALUE="watch"/>
-<OPTION LABEL="create" VALUE="create"/>
-<OPTION LABEL="export app" VALUE="app"/>
-<OPTION LABEL="export applet" VALUE="applet"/>
-</CHOICE>
-</CAPTION>
-<CAPTION LABEL="JRuby Opt">
-<TOGGLE LABEL="local jruby" VARNAME="jruby" DEFAULT="FALSE"/>
-<TOGGLE LABEL="P3D" VARNAME="p3d" DEFAULT="FALSE"/>
-<ENTRY LABEL="Name" VARNAME="name" DEFAULT="new_sketch"/>
-<ENTRY LABEL="Height" VARNAME="height" DEFAULT="100"/>
-<ENTRY LABEL="Width" VARNAME="width" DEFAULT="100"/>
-<ENTRY LABEL="Height" VARNAME="height" DEFAULT="100"/>
-</CAPTION>
-</UI>
+  <UI>
+    <CAPTION LABEL="Run">
+      <FILE_ENTRY LABEL="ruby file" VARNAME="file" EVAL="buffer.getName()"/>
+    </CAPTION>
+    <CAPTION LABEL="Path to rp5">
+      <ENTRY LABEL="(no spaces)" VARNAME="rp5" DEFAULT="/var/lib/gems/1.9.1/bin/"/>
+    </CAPTION>
+    <CAPTION LABEL="Choose Run/Watch/Create/App/Applet">
+      <CHOICE LABEL="Select" VARNAME="type" DEFAULT="run">
+        <OPTION LABEL="run" VALUE="run"/>
+        <OPTION LABEL="watch" VALUE="watch"/>
+        <OPTION LABEL="create" VALUE="create"/>
+        <OPTION LABEL="export app" VALUE="app"/>
+        <OPTION LABEL="export applet" VALUE="applet"/>
+      </CHOICE>
+    </CAPTION>
+    <CAPTION LABEL="JRuby Opt">
+      <TOGGLE LABEL="local jruby" VARNAME="jruby" DEFAULT="FALSE"/>
+    </CAPTION>
+  </UI>
 
-<COMMANDS>
+  <COMMANDS>
 
-<COMMAND SHELL="System" CONFIRM="FALSE">
+    <COMMAND SHELL="System" CONFIRM="FALSE">
 <!-- cd to working dir -->
 
 	  buf = new StringBuilder("cd ");
@@ -39,7 +34,7 @@
 	
 </COMMAND>
 
-<COMMAND SHELL="System" CONFIRM="FALSE">
+    <COMMAND SHELL="System" CONFIRM="FALSE">
 
 	  buf = new StringBuilder(rp5 + "rp5 ");
 	  buf.append(type);
@@ -47,22 +42,16 @@
 	  if (jruby){
 	  buf.append("--jruby ");
 	  }
-	  if (type.equals("create")){
-	  	  if (p3d){
-	         buf.append("--p3d ");
-	      }
-	      buf.append(" ").append(name).append(".rb ");
-	      buf.append(width).append(" ").append(height);
-	  }
 	  switch(type){
 	  case "run":
 	  case "watch":
-	      buf.append(sketch.replace(" ", "\\ "));
+	      buf.append(file);
 	      break;
 	  }
 	  buf.toString();
 	
 </COMMAND>
 
-</COMMANDS>
+
+  </COMMANDS>
 </COMMANDO>
