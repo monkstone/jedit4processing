@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE COMMANDO SYSTEM "commando.dtd"><!-- ruby processing commando -->
-<!-- Monkstone, 2013-Jun-07 -->
+<!-- Monkstone, 2013-Sep-15 -->
 <COMMANDO>
   <UI>
     <CAPTION LABEL="Run">
@@ -19,7 +19,7 @@
       </CHOICE>
     </CAPTION>
     <CAPTION LABEL="JRuby Opt">
-      <TOGGLE LABEL="local jruby" VARNAME="jruby" DEFAULT="FALSE"/>
+      <TOGGLE LABEL="local jruby" VARNAME="jruby" DEFAULT="TRUE"/>
     </CAPTION>
   </UI>
 
@@ -40,7 +40,7 @@
 	  buf.append(type);
 	  buf.append(" ");
 	  if (jruby){
-	  buf.append("--jruby ");
+	  buf.append("--nojruby ");
 	  }
 	  switch(type){
 	  case "run":
