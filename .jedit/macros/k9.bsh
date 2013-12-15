@@ -1,11 +1,11 @@
 /**
-* rp5.bsh by monkstone 15 December 2013 
+* k9.bsh by monkstone 15 December 2013 
 * A jedit bean shell macro, to load environment, and call
-* rp5 commando menu
+* k9 commando menu
 *
 * You must edit GEM_HOME/GEM_PATH to match your system
 *
 */
 setenv("GEM_HOME", "/home/tux/.gem/ruby/2.0.0");
 setenv("GEM_PATH", "/home/tux/.gem/ruby/2.0.0");
-new console.commando.CommandoDialog(view,"commando.rp5");
+new console.commando.CommandoDialog(view,"commando.k9");

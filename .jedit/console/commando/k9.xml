@@ -1,14 +1,13 @@
 <?xml version="1.0"?>
-
 <!DOCTYPE COMMANDO SYSTEM "commando.dtd">
-<!-- Monkstone, 2013-December-16 for ruby-processing > 2.0.12 -->
+<!-- Monkstone, 2013-August-16 for ruby-processing > 2.0.12 -->
 <COMMANDO>
 <UI>
 <CAPTION LABEL="Run">
 <FILE_ENTRY LABEL="ruby file" VARNAME="file" EVAL="buffer.getName()"/>
 </CAPTION>
-<CAPTION LABEL="Path to rp5">
-<ENTRY LABEL="path" VARNAME="rp5path" DEFAULT=""/>
+<CAPTION LABEL="Path to k9">
+<ENTRY LABEL="path" VARNAME="k9path" DEFAULT=""/>
 </CAPTION>
 <CAPTION LABEL="Choose Run/Watch/Create/App">
 <CHOICE LABEL="Select" VARNAME="type" DEFAULT="run" >
@@ -20,7 +19,7 @@
 </CHOICE>
 </CAPTION>
 <CAPTION LABEL="JRuby Opt">
-<TOGGLE LABEL="jruby-complete" VARNAME="jruby" DEFAULT="FALSE"/>
+<TOGGLE LABEL="gem" VARNAME="gem" DEFAULT="FALSE"/>
 </CAPTION>
 </UI>
 
@@ -28,7 +27,7 @@
 
 <COMMAND SHELL="System" CONFIRM="FALSE">
 <!-- cd to working dir -->
-
+          
 	  buf = new StringBuilder("cd ");
 	  buf.append(MiscUtilities.getParentOfPath(buffer.getPath()));
 	  buf.toString();
@@ -39,10 +38,10 @@
 
 <COMMAND SHELL="System" CONFIRM="FALSE">
 
-	  buf = new StringBuilder(rp5path);
-	  buf.append("rp5 ");
-	  if (jruby){
-	  buf.append("--nojruby ");
+	  buf = new StringBuilder(k9path);
+	  buf.append("k9 ");
+	  if (gem){
+	  buf.append("--gem ");
 	  }	 
 	  buf.append(type);
 	  buf.append(" "); 
