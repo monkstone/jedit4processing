@@ -5,5 +5,5 @@ Get jEdit [here]("http://www.jedit.org"), you can download some of jEdit tools a
 ##processing##
 Get processing [here](http://processing.org/)
 ##alternative language support##
-I've also produced tools for working with [processing.py](https://github.com/monkstone/processing.py-examples),and [JRubyArt](https://github.com/monkstone/JRubyArt) and [ruby-processing](https://github.com/jashkenas/ruby-processing/wiki/Other-Resources)
+I've also produced tools for working with [processing.py](https://github.com/monkstone/processing.py-examples),and [JRubyArt](https://github.com/monkstone/JRubyArt) and [ruby-processing](https://github.com/jashkenas/ruby-processing/wiki/Other-Resources) files also include in this repository.
 
