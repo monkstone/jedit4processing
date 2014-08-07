@@ -58,14 +58,14 @@ EVAL="MiscUtilities.getParentOfPath(buffer.getPath())"/>
 	      buf.append(file);
 	      break;
 	  case "setup":
-        buf.append("check");
+              buf.append("check");
 	      break;
 	  case "create":
 	      buf.append(file_name);
 	      buf.append(" 300 300 ");
 	      if (klass){
               buf.append("--wrap");
-        }
+              }
 	      break;
 	  }
 	  buf.toString();
@@ -74,29 +74,3 @@ EVAL="MiscUtilities.getParentOfPath(buffer.getPath())"/>
 </COMMANDS>
 </COMMANDO>
 
-<COMMAND SHELL="System" CONFIRM="FALSE">
-
-	  buf = new StringBuilder(rp5path);
-	  buf.append("rp5 ");
-	  if (jruby){
-	      buf.append("--nojruby ");
-	  }	 
-	  buf.append(type);
-	  buf.append(" "); 
-	  switch(type){
-	  case "run":
-	  case "watch":
-	  case "app":
-	      buf.append(file);
-	      break;
-	  case "setup":
-              buf.append("check");
-              break;
-	  }
-	  buf.toString();
-	
-</COMMAND>
-
-
-</COMMANDS>
-</COMMANDO>
