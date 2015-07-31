@@ -19,7 +19,7 @@
 </CHOICE>
 </CAPTION>
 <CAPTION LABEL="JRuby Opt">
-<TOGGLE LABEL="gem" VARNAME="gem" DEFAULT="FALSE"/>
+<TOGGLE LABEL="jruby" VARNAME="jruby" DEFAULT="TRUE"/>
 </CAPTION>
 </UI>
 
@@ -40,8 +40,8 @@
 
 	  buf = new StringBuilder(k9path);
 	  buf.append("k9 ");
-	  if (gem){
-	  buf.append("--gem ");
+	  if (!gem){
+	  buf.append("--nojruby ");
 	  }	 
 	  buf.append(type);
 	  buf.append(" "); 
