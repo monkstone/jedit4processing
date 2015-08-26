@@ -6,6 +6,8 @@
 * You must edit GEM_HOME/GEM_PATH to match your system
 *
 */
-setenv("GEM_HOME", "/home/tux/.gem/ruby/2.0.0");
-setenv("GEM_PATH", "/home/tux/.gem/ruby/2.0.0");
-new console.commando.CommandoDialog(view,"commando.rp5");
+setenv("JAVA_HOME", "/opt/jdk1.8.0_60");
+setenv("GEM_HOME", "/home/tux/.gem/ruby/2.2.0");
+setenv("GEM_PATH", "/home/tux/.gem/ruby/2.2.0");
+setenv("JRUBY_HOME", "/opt/jruby-1.7.22");
+
