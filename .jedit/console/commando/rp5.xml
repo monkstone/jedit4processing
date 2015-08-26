@@ -1,76 +1,82 @@
 <?xml version="1.0"?>
-<!DOCTYPE COMMANDO SYSTEM "commando.dtd">
-<!-- Monkstone, 2014-August-07 for ruby-processing > 2.6.0 -->
+<!DOCTYPE COMMANDO SYSTEM "commando.dtd"><!-- Monkstone, 2015-August-26 for ruby-processing > 2.6.15+ -->
 <COMMANDO>
-<UI>
-<CAPTION LABEL="Run">
-<FILE_ENTRY LABEL="ruby file" VARNAME="file" EVAL="buffer.getName()"/>
-</CAPTION>
-<CAPTION LABEL="Path to rp5">
-<ENTRY LABEL="path" VARNAME="rp5path" DEFAULT=""/>
-</CAPTION>
-<CAPTION LABEL="Choose Run/Watch/Create/App/Version"/>
-<CHOICE LABEL="Select" VARNAME="type" DEFAULT="run" >
-<OPTION  LABEL="run" VALUE="run"/>
-<OPTION LABEL="watch" VALUE="watch"/>
-<OPTION LABEL="create" VALUE="create"/>
-<OPTION LABEL="export app" VALUE="app"/>
-<OPTION LABEL="version" VALUE="setup"/>
-</CHOICE>
-<CAPTION LABEL="JRuby Opt">
-<TOGGLE LABEL="jruby-complete" VARNAME="jruby" DEFAULT="FALSE"/>
-</CAPTION>
-<CAPTION LABEL="Create Sketch">
-<TOGGLE_ENTRY LABEL="name" VARNAME="file_name"
-EVAL="MiscUtilities.getParentOfPath(buffer.getPath())"/>    
-</CAPTION><CAPTION LABEL="Create Opt">
-<TOGGLE LABEL="class wrap" VARNAME="klass" DEFAULT="FALSE"/>
-</CAPTION>
+  <UI>
+    <CAPTION LABEL="Run">
+      <FILE_ENTRY LABEL="ruby file" VARNAME="file" EVAL="buffer.getName()"/>
+    </CAPTION>
+    <CAPTION LABEL="Path to rp5">
+      <TOGGLE_ENTRY LABEL="path" VARNAME="rp5path" DEFAULT=""/>
+    </CAPTION>
+    <CAPTION LABEL="Choose Run/Watch/Create/App/Version">
+      <CHOICE LABEL="Select" VARNAME="type" DEFAULT="run">
+        <OPTION LABEL="run" VALUE="run"/>
+        <OPTION LABEL="watch" VALUE="watch"/>
+        <OPTION LABEL="create" VALUE="create"/>
+        <OPTION LABEL="live" VALUE="live"/>
+        <OPTION LABEL="export app" VALUE="app"/>
+        <OPTION LABEL="version" VALUE="setup"/>
+      </CHOICE>
+    </CAPTION>
+    <CAPTION LABEL="JRuby Opt">
+      <TOGGLE LABEL="jruby-complete" VARNAME="jruby" DEFAULT="FALSE"/>
+    </CAPTION>
+    <CAPTION LABEL="Create Sketch">
+      <TOGGLE_ENTRY LABEL="name" VARNAME="file_name" EVAL="MiscUtilities.getParentOfPath(buffer.getPath())"/>
+    </CAPTION>
+    <CAPTION LABEL="Create Opt">
+      <TOGGLE LABEL="class wrap" VARNAME="klass" DEFAULT="FALSE"/>
+    </CAPTION>
+    <CAPTION LABEL="Choose JAVA2D/P2D/P3D">
+      <CHOICE LABEL="Select" VARNAME="mode" DEFAULT="run">
+        <OPTION LABEL="java2d" VALUE=""/>
+        <OPTION LABEL="p2d" VALUE="P2D"/>
+        <OPTION LABEL="p3d" VALUE="P3D"/>
+      </CHOICE>
+    </CAPTION>
 
-</UI>
-
-<COMMANDS>
-
-<COMMAND SHELL="System" CONFIRM="FALSE">
+  </UI>
+  <COMMANDS>
+    <COMMAND SHELL="System" CONFIRM="FALSE">
 <!-- cd to working dir -->
 
 	  buf = new StringBuilder("cd ");
 	  buf.append(MiscUtilities.getParentOfPath(buffer.getPath()));
 	  buf.toString();
-	
-</COMMAND>
 
+  </COMMAND>
+  <COMMAND SHELL="System" CONFIRM="FALSE">
 
+      buf = new StringBuilder(rp5path);
+      buf.append("rp5 ");
+      if (jruby){
+          buf.append("--nojruby ");
+      }
+      buf.append(type);
+      buf.append(" ");
+      switch(type){
+      case "run":
+      case "watch":
+      case "app":
+      case "live":
+          buf.append(file);
+          break;
+      case "setup":
+          buf.append("check");
+          break;
+      case "create":
+          buf.append(file_name);
+          buf.append(" 300 300 ");
+          if (mode.length() > 0){
+                buf.append(mode + " ");
+          }
+          if (klass){
+                buf.append("--wrap");
+          }
+          break;
+      }
+      buf.toString();
 
-<COMMAND SHELL="System" CONFIRM="FALSE">
-
-	  buf = new StringBuilder(rp5path);
-	  buf.append("rp5 ");
-	  if (jruby){
-	      buf.append("--nojruby ");
-	  }	 
-	  buf.append(type);
-	  buf.append(" "); 
-	  switch(type){
-	  case "run":
-	  case "watch":
-	  case "app":
-	      buf.append(file);
-	      break;
-	  case "setup":
-              buf.append("check");
-	      break;
-	  case "create":
-	      buf.append(file_name);
-	      buf.append(" 300 300 ");
-	      if (klass){
-              buf.append("--wrap");
-              }
-	      break;
-	  }
-	  buf.toString();
-	
-</COMMAND>
-</COMMANDS>
+  </COMMAND>
+  </COMMANDS>
 </COMMANDO>
-
