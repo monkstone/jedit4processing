@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE COMMANDO SYSTEM "commando.dtd">
-<!-- Monkstone, 2013-August-16 for ruby-processing > 2.0.12 -->
+<!-- Monkstone, 2015-October-25 for JRubyArt-1.0.0+ -->
 <COMMANDO>
 <UI>
 <CAPTION LABEL="Run">
@@ -9,39 +9,33 @@
 <CAPTION LABEL="Path to k9">
 <ENTRY LABEL="path" VARNAME="k9path" DEFAULT=""/>
 </CAPTION>
-<CAPTION LABEL="Choose Run/Watch/Create/App">
+<CAPTION LABEL="Choose Run/Watch/Create/App/Version">
 <CHOICE LABEL="Select" VARNAME="type" DEFAULT="run" >
 <OPTION  LABEL="run" VALUE="run"/>
 <OPTION LABEL="watch" VALUE="watch"/>
-<OPTION LABEL="create" VALUE="create"/>
-<OPTION LABEL="export app" VALUE="app"/>
-<OPTION LABEL="export applet" VALUE="applet"/>
+<OPTION LABEL="version" VALUE="setup"/>
 </CHOICE>
 </CAPTION>
 <CAPTION LABEL="JRuby Opt">
-<TOGGLE LABEL="jruby" VARNAME="jruby" DEFAULT="TRUE"/>
+<TOGGLE LABEL="jruby-complete" VARNAME="jruby" DEFAULT="FALSE"/>
 </CAPTION>
 </UI>
 
 <COMMANDS>
-
 <COMMAND SHELL="System" CONFIRM="FALSE">
 <!-- cd to working dir -->
-          
+
 	  buf = new StringBuilder("cd ");
 	  buf.append(MiscUtilities.getParentOfPath(buffer.getPath()));
 	  buf.toString();
 	
 </COMMAND>
-
-
-
 <COMMAND SHELL="System" CONFIRM="FALSE">
 
 	  buf = new StringBuilder(k9path);
 	  buf.append("k9 ");
-	  if (!gem){
-	  buf.append("--nojruby ");
+	  if (jruby){
+	      buf.append("--nojruby ");
 	  }	 
 	  buf.append(type);
 	  buf.append(" "); 
@@ -50,11 +44,12 @@
 	  case "watch":
 	      buf.append(file);
 	      break;
+	  case "setup":
+              buf.append("check");
+	      break;	  
 	  }
 	  buf.toString();
 	
 </COMMAND>
-
-
 </COMMANDS>
 </COMMANDO>

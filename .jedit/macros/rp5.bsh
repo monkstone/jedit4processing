@@ -1,13 +1,16 @@
 /**
-* rp5.bsh by monkstone 26 August 2015 
+* rp5.bsh by monkstone 24 October 2015 
 * A jedit bean shell macro, to load environment, and call
 * rp5 commando menu
 *
 * You must edit GEM_HOME/GEM_PATH to match your system
-*
+* example below for ArchLinux with user 'tux'
+* Using Oracle jdk installed under /opt
 */
-setenv("JAVA_HOME", "/opt/jdk1.8.0_60");
+
+setenv("JAVA_HOME", "/opt/jdk1.8.0_66");
+setenv("JRUBY_HOME", "/opt/jruby");
 setenv("GEM_HOME", "/home/tux/.gem/ruby/2.2.0");
 setenv("GEM_PATH", "/home/tux/.gem/ruby/2.2.0");
-setenv("JRUBY_HOME", "/opt/jruby-1.7.22");
-
+setenv("PATH", "/usr/bin");;
+new console.commando.CommandoDialog(view,"commando.rp5");

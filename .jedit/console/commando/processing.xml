@@ -3,11 +3,11 @@
 <!-- Monkstone, 2012-Nov-07 -->
 <COMMANDO>
     <UI>
-        <CAPTION LABEL="Run Processing">        
-        <ENTRY LABEL="Source File(s)">
+        <CAPTION LABEL="Run Processing">      
+        
             <FILE_ENTRY LABEL="File Name" VARNAME="file" EVAL="buffer.getName()"/>
             <DIR_ENTRY LABEL="Running Directory" VARNAME="pde" EVAL="buffer.getDirectory()"/>
-        </ENTRY>
+       
         </CAPTION>
         <CAPTION LABEL="Path to processing-java">
             <ENTRY LABEL="(no spaces)" VARNAME="processing"/>
@@ -37,8 +37,7 @@
         if (file.endsWith(".pde")){
         buf = new StringBuilder(100);	
         buf.append(processing);
-	    buf.append(cmd);
-	    buf.append(" --sketch=").append(pde.replace(" ", "\\ "));
+	    buf.append(" --sketch=").append(pde).append(file);
 	    <!-- Be careful specifying your output/tmp folder with force option -->
 	    if(force){
 	    buf.append(" --force --output=").append(output);	
@@ -54,13 +53,15 @@
 	    }
 	    else{
 	    buf.append(" --bits=32");
-	    }	    
+	    }	
+	    
 	    }
 	    <!-- end export -->	    
 	    }
 	    else{
 	       throw new RuntimeException("Save the sketch first in a folder, bearing the same name!!!!");
-        }       
+        } 
+        buf.append(cmd);
 	    buf.toString();
         </COMMAND>
     </COMMANDS>

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<!-- JEdit edit mode/syntax colouring definition for Processing 2.0 'java' source files
+<!-- JEdit edit mode/syntax colouring definition for Processing 3.0 'java' source files
 
 author: Martin Prout (based on default java edit mode, keywords.txt and toxis original)
-version 1.7
-last modified: 2013-June-16
+version 1.8
+last modified: 2015-September-15
 
 installation:
 =============
