@@ -6,6 +6,6 @@ Get jEdit [here](http://www.jedit.org/), you can download some of jEdit tools at
 Get processing [here](http://processing.org/)
 ##alternative language support##
 I've also produced tools for working with [processing.py](https://github.com/monkstone/processing.py-examples)
-##jEdit for JRubyArt
+##jEdit for JRubyArt and ruby-processing
 [JRubyArt](https://github.com/ruby-processing/JRubyArt) and [ruby-processing](https://github.com/jashkenas/ruby-processing/wiki/Other-Resources) files also include in this repository.
 
