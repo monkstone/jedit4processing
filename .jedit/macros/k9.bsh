@@ -4,13 +4,15 @@
 * k9 commando menu
 *
 * You must edit GEM_HOME/GEM_PATH to match your system
+* to use setenv, but you may be able to leave the lines
+* commented out, as below.
 * example below for ArchLinux with user 'tux'
 * Using Oracle jdk installed under /opt
 */
 
-setenv("JAVA_HOME", "/opt/jdk1.8.0_66");
-setenv("JRUBY_HOME", "/opt/jruby");
-setenv("GEM_HOME", "/home/tux/.gem/ruby/2.2.0");
-setenv("GEM_PATH", "/home/tux/.gem/ruby/2.2.0");
-setenv("PATH", "/usr/bin");
+// setenv("JAVA_HOME", "/opt/jdk1.8.0_66");
+// setenv("JRUBY_HOME", "/opt/jruby");
+// setenv("GEM_HOME", "/home/tux/.gem/ruby/2.2.0");
+// setenv("GEM_PATH", "/home/tux/.gem/ruby/2.2.0");
+// setenv("PATH", "/usr/bin");
 new console.commando.CommandoDialog(view,"commando.k9");

@@ -9,7 +9,7 @@
 <CAPTION LABEL="Path to k9">
 <ENTRY LABEL="path" VARNAME="k9path" DEFAULT=""/>
 </CAPTION>
-<CAPTION LABEL="Choose Run/Watch/Create/App/Version">
+<CAPTION LABEL="Choose Run/Watch/Version">
 <CHOICE LABEL="Select" VARNAME="type" DEFAULT="run" >
 <OPTION  LABEL="run" VALUE="run"/>
 <OPTION LABEL="watch" VALUE="watch"/>
