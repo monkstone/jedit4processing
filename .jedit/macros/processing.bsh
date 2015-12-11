@@ -1,2 +1,0 @@
-// This macro displays the processing command gui
-new console.commando.CommandoDialog(view,"commando.processing");
