@@ -8,13 +8,14 @@ categories: jekyll update
 
 Install `jEdit` and the `console` plugin at a minimum.
 
-Either clone this repro or use a zipped file, copy the files in the `.jedit` folder to wherever your `.jedit` folder is typically `~/.jedit` and edit them suit your system see below for JRubyArt for an example.
+Either clone this repro or use a zipped file, copy the files in the `.jedit` folder to wherever your `.jedit` folder is typically `~/.jedit` and edit them suit your system see below for ruby-processing installed on ArchLinux.
 
 ### The macro file rp5.bsh
 
 This file lives in `~/.jedit/macros/` folder use this so you you can `run`, `watch` from the `macros` menu 
 
 {% highlight java %}
+
 /**
 * rp5.bsh by monkstone 24 October 2015 
 * A jedit bean shell macro, to load environment, and call
@@ -32,6 +33,7 @@ This file lives in `~/.jedit/macros/` folder use this so you you can `run`, `wat
 // setenv("GEM_PATH", "/home/tux/.gem/ruby/2.2.0");
 // setenv("PATH", "/usr/bin");
 new console.commando.CommandoDialog(view,"commando.rp5");
+
 {% endhighlight %}
 
 ### The commando file rp5.xml
