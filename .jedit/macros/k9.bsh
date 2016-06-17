@@ -1,5 +1,5 @@
 /**
-* k9.bsh by monkstone 24 October 2015 
+* k9.bsh by monkstone 17 June 2016 
 * A jedit bean shell macro, to load environment, and call
 * k9 commando menu
 *
@@ -9,9 +9,9 @@
 * Using Oracle jdk installed under /opt
 */
 
-setenv("JAVA_HOME", "/opt/jdk1.8.0_66");
-setenv("JRUBY_HOME", "/opt/jruby");
-setenv("GEM_HOME", "/home/tux/.gem/ruby/2.2.0");
-setenv("GEM_PATH", "/home/tux/.gem/ruby/2.2.0");
-setenv("PATH", "/usr/bin");
+// setenv("JAVA_HOME", "/opt/jdk1.8.0_92");
+// setenv("JRUBY_HOME", "/opt/jruby");
+// setenv("GEM_HOME", "/home/tux/.gem/ruby/2.3.0");
+// setenv("GEM_PATH", "/home/tux/.gem/ruby/2.3.0");
+// setenv("PATH", "/usr/bin");
 new console.commando.CommandoDialog(view,"commando.k9");
