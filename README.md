@@ -7,9 +7,13 @@ Get processing [here](http://processing.org/)
 ###alternative language support###
 I've also produced tools for working with [processing.py](https://github.com/monkstone/processing.py-examples)
 ##jEdit for JRubyArt and ruby-processing
-[JRubyArt](https://github.com/ruby-processing/JRubyArt) see [wiki](https://github.com/monkstone/jedit4processing/wiki/Setting-up-for-JRubyArt) and [ruby-processing](https://github.com/jashkenas/ruby-processing/wiki/Other-Resources) files also include in this repository.
+See [jEdit for JRubyArt][] 
+
+Also see [wiki](https://github.com/monkstone/jedit4processing/wiki/Setting-up-for-JRubyArt) and [ruby-processing](https://github.com/jashkenas/ruby-processing/wiki/Other-Resources) files also include in this repository.
+
 ##Install##
 Extract zip in home folder ("My Documents" windows), creates `.jedit` folder (or extract into `.jedit` folder if exists) macros need to be tuned for OS java version see jEdit for details.
 
 For JRubyArt-1.2.0+ use k9.xml in this folder to replace original commando file.
+[jEdit for JRubyArt]:http://monkstone.github.io/jedit4processing
 
