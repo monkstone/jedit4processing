@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE COMMANDO SYSTEM "commando.dtd"><!-- Monkstone, 2016-July-13 for JRubyArt-1.2.0+ -->
+<COMMANDO>
+  <UI>
+    <CAPTION LABEL="Run">
+      <FILE_ENTRY LABEL="ruby file" VARNAME="file" EVAL="buffer.getName()"/>
+    </CAPTION>
+    <CAPTION LABEL="Path to k9">
+      <ENTRY LABEL="path" VARNAME="k9path" DEFAULT=""/>
+    </CAPTION>
+    <CAPTION LABEL="Choose Run/Watch/Version">
+      <CHOICE LABEL="Select" VARNAME="type" DEFAULT="run">
+        <OPTION LABEL="run" VALUE="-r"/>
+        <OPTION LABEL="watch" VALUE="-w"/>
+        <OPTION LABEL="check" VALUE="--check"/>
+        <OPTION LABEL="version" VALUE="--version"/>
+      </CHOICE>
+    </CAPTION>
+  </UI>
+
+  <COMMANDS>
+    <COMMAND SHELL="System" CONFIRM="FALSE">
+<!-- cd to working dir -->
+
+	  buf = new StringBuilder("cd ");
+	  buf.append(MiscUtilities.getParentOfPath(buffer.getPath()));
+	  buf.toString();
+	
+</COMMAND>
+    <COMMAND SHELL="System" CONFIRM="FALSE">
+
+	  buf = new StringBuilder(k9path);
+	  buf.append("k9 ");
+	  buf.append(type);	  
+	  switch(type){
+	  case "-r":
+	  case "-w":
+	      buf.append(" "); 
+	      buf.append(file);
+	      break;
+	  case "-?":
+ 	      break;	  
+	  }
+	  buf.toString();
+	
+</COMMAND>
+  </COMMANDS>
+</COMMANDO>
