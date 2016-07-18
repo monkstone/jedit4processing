@@ -1,10 +1,11 @@
 # Site settings
 title: jEdit for JRubyArt
-email: martin_p@lineone.net
+email: mamba2928@yahoo.co.uk
 description: > # this means to ignore newlines until "baseurl:"
   jEdit is an extremely configurable editor, that is very suitable for 
   JRubyArt, ruby-processing, processing.py and even vanilla processing
-baseurl: "/jedit4processing" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
+regenerate: true
 urls:
   bugs: http://github.com/ruby-processing/jedit4processing/issues
   github: http://github.com/ruby-processing/jedit4processing/

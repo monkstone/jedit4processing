@@ -106,4 +106,4 @@ The macro menu is accessible with `Alt c`.  However you should create a direct s
 
 Use this menu to run/watch your sketch (the current buffer), you only need to enter the path to the rp5 executable once (this, the choice of run/watch, and the checkbox setting are 'remembered' for you). The filename of the current buffer is displayed for your convenience and need not be entered. You can use the `Commands` tab to see what commands get sent (eg checked jruby-complete, inserts `--nojruby` flag). You can also check JRubyArt version and configuration using version _remember to change back to run or watch though_.
 
-<img src="{{ site.baseurl }}/assets/rp5.png" />
+<img src="{{ site.github.url }}/assets/rp5.png" />
