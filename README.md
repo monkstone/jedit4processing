@@ -24,5 +24,6 @@ Also see [wiki](https://github.com/monkstone/jedit4processing/wiki/Setting-up-fo
 Extract zip in home folder ("My Documents" windows), creates `.jedit` folder (or extract into `.jedit` folder if exists) macros need to be tuned for OS java version see jEdit for details.
 
 For JRubyArt prior to version 1.2.0+ use k9.xml in this folder to replace the current commando file.
+
 [jEdit for JRubyArt]:http://monkstone.github.io/jedit4processing
 
